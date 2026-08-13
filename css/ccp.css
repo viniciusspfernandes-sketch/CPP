@@ -142,7 +142,6 @@
  * - widgets do rodapé.
  */
 
-.main-navigation .full-container,
 .site-header .full-container,
 #main .full-container,
 #footer-widgets.full-container {
@@ -172,7 +171,7 @@
 
 /* Título estrutural somente da página inicial estática. */
 
-body.home.page #primary article.page > .entry-header > .entry-title {
+body.home #primary > #content > article > .entry-main > .entry-header {
     display: none;
 }
 
@@ -262,30 +261,35 @@ body.home.page #primary article.page > .entry-header > .entry-title {
     position: relative;
     width: 100%;
     margin: 0;
-    border: 0;
+    border-top: 3px solid var(--ccp-red-700);
+    border-bottom: 3px solid var(--ccp-red-700);
     background: var(--ccp-green-900);
     box-shadow: none;
 }
 
 
-/* Única faixa acima do menu: vermelha e em largura total. */
-
-.main-navigation::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    display: block;
-    width: 100%;
-    height: 3px;
-    background: var(--ccp-red-700);
-    pointer-events: none;
+.main-navigation .full-container {
+    width: calc(100% - 48px);
+    max-width: none;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 
-.main-navigation .full-container > ul {
-    padding-top: 3px;
+@media (min-width: 1025px) {
+
+    .main-navigation .full-container > ul,
+    .main-navigation .full-container > ul > li,
+    .main-navigation .full-container > ul > li > a {
+        white-space: nowrap;
+    }
+
+
+    .main-navigation .full-container > ul > li > a {
+        padding-right: clamp(12px, 1.25vw, 20px);
+        padding-left: clamp(12px, 1.25vw, 20px);
+    }
+
 }
 
 
@@ -684,12 +688,38 @@ body.home.page #primary article.page > .entry-header > .entry-title {
 
 
 .ccp-shortcut__icon {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    width: 2.25rem;
-    height: 2.25rem;
+    width: 52px;
+    height: 52px;
 
     margin-bottom: var(--ccp-space-4);
+
+    color: var(--ccp-green-800);
+}
+
+
+.ccp-shortcut__icon img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+}
+
+
+.ccp-shortcut__icon svg {
+    width: 46px;
+    height: 46px;
+
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
 }
 
 
@@ -1329,6 +1359,12 @@ body.home.page #primary article.page > .entry-header > .entry-title {
     .ccp-home-shortcuts__grid {
         grid-template-columns:
             repeat(2, minmax(0, 1fr));
+    }
+
+
+    .ccp-shortcut__icon {
+        width: 48px;
+        height: 48px;
     }
 
 
