@@ -1,0 +1,1886 @@
+/* ==========================================================
+   CCP — Conselho das Comunidades Portuguesas
+   Design System / Home
+   Versão 0.2
+   ========================================================== */
+
+
+/* ==========================================================
+   01. DESIGN TOKENS
+   ========================================================== */
+
+:root {
+
+    /* ------------------------------------------------------
+       Identidade
+       ------------------------------------------------------ */
+
+    --ccp-green-950: #003326;
+    --ccp-green-900: #004b35;
+    --ccp-green-800: #075c43;
+    --ccp-green-700: #0b6a4c;
+
+    --ccp-red-800: #9f1c29;
+    --ccp-red-700: #b51f2e;
+    --ccp-red-600: #c92b38;
+
+    --ccp-gold-700: #a77a16;
+    --ccp-gold-600: #c49a2c;
+    --ccp-gold-500: #d6ad46;
+
+
+    /* ------------------------------------------------------
+       Neutros
+       ------------------------------------------------------ */
+
+    --ccp-white: #ffffff;
+
+    --ccp-cream: #f7f4ec;
+    --ccp-surface: #fbfaf7;
+
+    --ccp-border: #dedbd2;
+
+    --ccp-text: #1f2d29;
+    --ccp-text-muted: #5b665f;
+
+
+    /* ------------------------------------------------------
+       Tipografia
+       ------------------------------------------------------ */
+
+    --ccp-font-body:
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    --ccp-font-heading:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+
+    /* ------------------------------------------------------
+       Layout
+       ------------------------------------------------------ */
+
+    --ccp-container: 1200px;
+
+
+    /* ------------------------------------------------------
+       Espaçamento
+       ------------------------------------------------------ */
+
+    --ccp-space-1: 0.25rem;
+    --ccp-space-2: 0.5rem;
+    --ccp-space-3: 0.75rem;
+    --ccp-space-4: 1rem;
+    --ccp-space-5: 1.5rem;
+    --ccp-space-6: 2rem;
+    --ccp-space-7: 3rem;
+    --ccp-space-8: 4rem;
+
+
+    /* ------------------------------------------------------
+       Formas
+       ------------------------------------------------------ */
+
+    --ccp-radius-sm: 4px;
+    --ccp-radius-md: 8px;
+    --ccp-radius-lg: 12px;
+
+
+    /* ------------------------------------------------------
+       Elevação
+       ------------------------------------------------------ */
+
+    --ccp-shadow-sm:
+        0 2px 8px rgb(0 51 38 / 0.06);
+
+    --ccp-shadow-md:
+        0 8px 24px rgb(0 51 38 / 0.08);
+
+
+    /* ------------------------------------------------------
+       Movimento
+       ------------------------------------------------------ */
+
+    --ccp-transition: 180ms ease;
+}
+
+
+
+/* ==========================================================
+   02. VANTAGE — CONTAINER GLOBAL
+
+   Menu, conteúdo e rodapé passam a utilizar o mesmo eixo
+   horizontal.
+
+   O fundo dos elementos pode continuar ocupando 100% da tela.
+   ========================================================== */
+
+
+/*
+ * Remove o padding lateral estrutural do Vantage.
+ * O espaçamento passa a ser controlado pelo container.
+ */
+
+#main {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+
+/*
+ * Um único trilho para:
+ *
+ * - navegação;
+ * - conteúdo;
+ * - cabeçalho;
+ * - widgets do rodapé.
+ */
+
+.main-navigation .full-container,
+.site-header .full-container,
+#main .full-container,
+#footer-widgets.full-container {
+    width: calc(100% - 48px);
+    max-width: var(--ccp-container) !important;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+/*
+ * Container dos componentes CCP.
+ *
+ * Mantemos os dois nomes temporariamente porque os HTMLs
+ * existentes ainda utilizam ccp-home-container.
+ */
+
+.ccp-container,
+.ccp-home-container {
+    width: 100%;
+    max-width: var(--ccp-container);
+    margin-right: auto;
+    margin-left: auto;
+    box-sizing: border-box;
+}
+
+
+
+/* ==========================================================
+   03. BASE DOS COMPONENTES CCP
+   ========================================================== */
+
+.ccp-home-hero,
+.ccp-home-shortcuts,
+.ccp-home-news-header,
+.ccp-home-regions,
+.ccp-home-activity,
+.ccp-home-stats,
+.ccp-home-history,
+.ccp-home-contact {
+    box-sizing: border-box;
+    color: var(--ccp-text);
+    font-family: var(--ccp-font-body);
+    line-height: 1.6;
+}
+
+
+.ccp-home-hero *,
+.ccp-home-shortcuts *,
+.ccp-home-news-header *,
+.ccp-home-regions *,
+.ccp-home-activity *,
+.ccp-home-stats *,
+.ccp-home-history *,
+.ccp-home-contact * {
+    box-sizing: border-box;
+}
+
+
+.ccp-home-shortcuts h2,
+.ccp-home-news-header h2,
+.ccp-home-regions h2,
+.ccp-home-activity h2,
+.ccp-home-stats h2,
+.ccp-home-history h2,
+.ccp-home-contact h2 {
+    margin-top: 0;
+
+    color: var(--ccp-green-900);
+
+    font-family: var(--ccp-font-heading);
+    font-size: clamp(1.6rem, 3vw, 2.25rem);
+    line-height: 1.15;
+}
+
+
+
+/* ==========================================================
+   04. CABEÇALHOS DE SEÇÃO
+   ========================================================== */
+
+.ccp-section-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--ccp-space-5);
+
+    margin-bottom: var(--ccp-space-5);
+}
+
+
+.ccp-section-header h2 {
+    margin-bottom: 0;
+}
+
+
+.ccp-section-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+
+    color: var(--ccp-red-700);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+
+.ccp-section-link:hover {
+    color: var(--ccp-red-800);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+}
+
+
+
+/* ==========================================================
+   05. HERO
+   ========================================================== */
+
+.ccp-home-hero {
+    overflow: hidden;
+
+    background: var(--ccp-green-900);
+    color: var(--ccp-white);
+}
+
+
+.ccp-home-hero__content {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 0.9fr)
+        minmax(0, 1.4fr);
+
+    min-height: 440px;
+}
+
+
+.ccp-home-hero__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: clamp(2rem, 5vw, 4.5rem);
+
+    background: var(--ccp-green-900);
+    color: var(--ccp-white);
+}
+
+
+.ccp-home-hero__text h1 {
+    margin: 0 0 1.25rem;
+
+    color: var(--ccp-white);
+
+    font-family: var(--ccp-font-heading);
+    font-size: clamp(2.2rem, 4vw, 3.8rem);
+    font-weight: 700;
+    line-height: 1.08;
+}
+
+
+.ccp-home-hero__text p {
+    max-width: 38rem;
+
+    margin: 0 0 2rem;
+
+    color: var(--ccp-white);
+
+    font-size: 1.05rem;
+    line-height: 1.65;
+}
+
+
+.ccp-home-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 0.75rem;
+}
+
+
+.ccp-home-hero__media {
+    min-width: 0;
+
+    overflow: hidden;
+}
+
+
+.ccp-home-hero__media img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+
+/* ==========================================================
+   06. BOTÕES
+   ========================================================== */
+
+.ccp-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 44px;
+
+    padding: 0.75rem 1.15rem;
+
+    border: 2px solid transparent;
+    border-radius: var(--ccp-radius-sm);
+
+    font-weight: 650;
+    line-height: 1.2;
+    text-decoration: none;
+
+    transition:
+        background-color var(--ccp-transition),
+        border-color var(--ccp-transition),
+        color var(--ccp-transition);
+}
+
+
+.ccp-button--primary {
+    background: var(--ccp-white);
+    color: var(--ccp-green-900);
+}
+
+
+.ccp-button--primary:hover {
+    background: var(--ccp-cream);
+    color: var(--ccp-green-950);
+}
+
+
+.ccp-button--secondary {
+    border-color: rgb(255 255 255 / 0.65);
+
+    background: transparent;
+    color: var(--ccp-white);
+}
+
+
+.ccp-button--secondary:hover {
+    border-color: var(--ccp-white);
+
+    background: rgb(255 255 255 / 0.1);
+    color: var(--ccp-white);
+}
+
+
+.ccp-button:hover {
+    text-decoration: none;
+}
+
+
+
+/* ==========================================================
+   07. O QUE PROCURA?
+   ========================================================== */
+
+.ccp-home-shortcuts {
+    padding-block: var(--ccp-space-7);
+
+    background: var(--ccp-cream);
+}
+
+
+.ccp-home-shortcuts h2 {
+    margin-bottom: var(--ccp-space-5);
+    text-align: center;
+}
+
+
+.ccp-home-shortcuts__grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(6, minmax(0, 1fr));
+
+    gap: var(--ccp-space-4);
+}
+
+
+.ccp-shortcut {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    min-width: 0;
+    min-height: 150px;
+
+    padding: var(--ccp-space-5);
+
+    border: 1px solid var(--ccp-border);
+    border-radius: var(--ccp-radius-md);
+
+    background: var(--ccp-white);
+    box-shadow: var(--ccp-shadow-sm);
+
+    color: var(--ccp-green-900);
+    text-decoration: none;
+
+    transition:
+        border-color var(--ccp-transition),
+        box-shadow var(--ccp-transition),
+        transform var(--ccp-transition);
+}
+
+
+.ccp-shortcut:hover {
+    border-color: rgb(0 75 53 / 0.25);
+
+    box-shadow: var(--ccp-shadow-md);
+
+    color: var(--ccp-green-900);
+
+    text-decoration: none;
+
+    transform: translateY(-2px);
+}
+
+
+.ccp-shortcut__icon {
+    display: block;
+
+    width: 2.25rem;
+    height: 2.25rem;
+
+    margin-bottom: var(--ccp-space-4);
+}
+
+
+.ccp-shortcut__title {
+    display: block;
+
+    font-weight: 650;
+    line-height: 1.35;
+}
+
+
+.ccp-shortcut__arrow {
+    display: block;
+
+    margin-top: var(--ccp-space-4);
+
+    color: var(--ccp-green-700);
+    font-size: 1.25rem;
+}
+
+
+
+/* ==========================================================
+   08. NOTÍCIAS
+   ========================================================== */
+
+.ccp-home-news-header {
+    padding-top: var(--ccp-space-7);
+}
+
+
+.ccp-home-news-header .ccp-section-header {
+    margin-bottom: var(--ccp-space-5);
+}
+
+
+/*
+ * O layout do Post Loop será tratado depois que analisarmos
+ * o HTML efetivamente produzido pelo widget do SiteOrigin.
+ *
+ * Não criamos seletores hipotéticos aqui.
+ */
+
+
+
+/* ==========================================================
+   09. REPRESENTAÇÃO NO MUNDO
+   ========================================================== */
+
+.ccp-home-regions {
+    padding-block: var(--ccp-space-7);
+
+    background: var(--ccp-surface);
+}
+
+
+.ccp-home-regions__grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(5, minmax(0, 1fr));
+
+    gap: var(--ccp-space-4);
+}
+
+
+.ccp-region-card {
+    display: flex;
+    align-items: center;
+
+    min-width: 0;
+    min-height: 100px;
+
+    gap: var(--ccp-space-4);
+
+    padding: var(--ccp-space-5);
+
+    border: 1px solid var(--ccp-border);
+    border-radius: var(--ccp-radius-md);
+
+    background: var(--ccp-white);
+    box-shadow: var(--ccp-shadow-sm);
+
+    color: var(--ccp-green-900);
+    text-decoration: none;
+
+    transition:
+        border-color var(--ccp-transition),
+        box-shadow var(--ccp-transition),
+        transform var(--ccp-transition);
+}
+
+
+.ccp-region-card:hover {
+    border-color: rgb(0 75 53 / 0.25);
+
+    box-shadow: var(--ccp-shadow-md);
+
+    color: var(--ccp-green-900);
+
+    text-decoration: none;
+
+    transform: translateY(-2px);
+}
+
+
+.ccp-region-card__icon {
+    flex: 0 0 auto;
+
+    width: 3rem;
+    height: 3rem;
+}
+
+
+.ccp-region-card__title {
+    font-weight: 650;
+    line-height: 1.3;
+}
+
+
+
+/* ==========================================================
+   10. ATIVIDADE DO CONSELHO
+   ========================================================== */
+
+.ccp-home-activity {
+    padding-block: var(--ccp-space-7);
+}
+
+
+.ccp-home-activity__grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: var(--ccp-space-4);
+}
+
+
+.ccp-document-group {
+    min-width: 0;
+
+    padding: var(--ccp-space-5);
+
+    border: 1px solid var(--ccp-border);
+    border-radius: var(--ccp-radius-md);
+
+    background: var(--ccp-white);
+    box-shadow: var(--ccp-shadow-sm);
+}
+
+
+.ccp-document-group__header {
+    display: flex;
+    align-items: center;
+
+    gap: var(--ccp-space-3);
+
+    margin-bottom: var(--ccp-space-4);
+}
+
+
+.ccp-document-group__header h3 {
+    margin: 0;
+
+    color: var(--ccp-green-900);
+
+    font-family: var(--ccp-font-heading);
+    font-size: 1.35rem;
+    line-height: 1.2;
+}
+
+
+.ccp-document-group__icon {
+    flex: 0 0 auto;
+
+    width: 2rem;
+    height: 2rem;
+}
+
+
+.ccp-document-list {
+    margin: 0 0 var(--ccp-space-5);
+    padding: 0;
+
+    list-style: none;
+}
+
+
+.ccp-document-list li {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        auto;
+
+    gap: var(--ccp-space-4);
+
+    padding-block: 0.7rem;
+
+    border-bottom: 1px solid var(--ccp-border);
+}
+
+
+.ccp-document-list li:last-child {
+    border-bottom: 0;
+}
+
+
+.ccp-document-list a {
+    color: var(--ccp-text);
+    text-decoration: none;
+}
+
+
+.ccp-document-list a:hover {
+    color: var(--ccp-green-800);
+
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+}
+
+
+.ccp-document-list time {
+    color: var(--ccp-text-muted);
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+
+
+.ccp-document-group__more {
+    color: var(--ccp-green-800);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+
+.ccp-document-group__more:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+}
+
+
+
+/* ==========================================================
+   11. CCP EM NÚMEROS
+   ========================================================== */
+
+.ccp-home-stats {
+    padding-block: var(--ccp-space-7);
+}
+
+
+.ccp-home-stats > .ccp-container > h2,
+.ccp-home-stats > .ccp-home-container > h2 {
+    margin-bottom: var(--ccp-space-5);
+}
+
+
+.ccp-home-stats__grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: var(--ccp-space-4);
+}
+
+
+.ccp-stat-card {
+    display: flex;
+    align-items: flex-start;
+
+    min-width: 0;
+
+    gap: var(--ccp-space-4);
+
+    padding: var(--ccp-space-5);
+
+    border: 1px solid var(--ccp-border);
+    border-radius: var(--ccp-radius-md);
+
+    background: var(--ccp-white);
+}
+
+
+.ccp-stat-card__icon {
+    flex: 0 0 auto;
+
+    width: 3rem;
+    height: 3rem;
+}
+
+
+.ccp-stat-card__content {
+    min-width: 0;
+}
+
+
+.ccp-stat-card__label {
+    display: block;
+
+    color: var(--ccp-text-muted);
+
+    font-size: 0.9rem;
+}
+
+
+.ccp-stat-card__value {
+    display: block;
+
+    margin-block: 0.1rem;
+
+    color: var(--ccp-green-900);
+
+    font-family: var(--ccp-font-heading);
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.05;
+}
+
+
+.ccp-stat-card p {
+    margin: var(--ccp-space-2) 0 0;
+
+    color: var(--ccp-text-muted);
+
+    font-size: 0.9rem;
+    line-height: 1.45;
+}
+
+
+
+/* ==========================================================
+   12. HISTÓRIA E MEMÓRIA
+   ========================================================== */
+
+.ccp-home-history {
+    padding-block: var(--ccp-space-7);
+
+    background: var(--ccp-surface);
+}
+
+
+.ccp-timeline {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: var(--ccp-space-7);
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+
+.ccp-timeline__item {
+    position: relative;
+
+    min-width: 0;
+}
+
+
+.ccp-timeline__marker {
+    display: block;
+
+    width: 14px;
+    height: 14px;
+
+    margin-bottom: var(--ccp-space-4);
+
+    border: 3px solid var(--ccp-green-700);
+    border-radius: 50%;
+
+    background: var(--ccp-white);
+}
+
+
+.ccp-timeline__year {
+    display: block;
+
+    margin-bottom: var(--ccp-space-2);
+
+    color: var(--ccp-green-900);
+
+    font-family: var(--ccp-font-heading);
+    font-size: 1.45rem;
+}
+
+
+.ccp-timeline__content p {
+    margin: 0;
+
+    color: var(--ccp-text-muted);
+}
+
+
+
+/* ==========================================================
+   13. FALE CONNOSCO
+   ========================================================== */
+
+.ccp-home-contact {
+    padding-block: var(--ccp-space-6);
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--ccp-green-900) 0%,
+            var(--ccp-green-900) 52%,
+            var(--ccp-red-700) 100%
+        );
+
+    color: var(--ccp-white);
+}
+
+
+.ccp-home-contact__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: var(--ccp-space-7);
+}
+
+
+.ccp-home-contact__text {
+    max-width: 700px;
+}
+
+
+.ccp-home-contact h2 {
+    margin-bottom: var(--ccp-space-3);
+
+    color: var(--ccp-white);
+}
+
+
+.ccp-home-contact p {
+    margin: 0;
+
+    color: var(--ccp-white);
+}
+
+
+.ccp-home-contact__action {
+    flex: 0 0 auto;
+}
+
+
+.ccp-button--contact {
+    background: var(--ccp-white);
+    color: var(--ccp-green-900);
+}
+
+
+.ccp-button--contact:hover {
+    background: var(--ccp-cream);
+    color: var(--ccp-green-950);
+}
+
+
+
+/* ==========================================================
+   14. LINKS E FOCO — ACESSIBILIDADE
+   ========================================================== */
+
+.ccp-home-hero a:focus-visible,
+.ccp-home-shortcuts a:focus-visible,
+.ccp-home-news-header a:focus-visible,
+.ccp-home-regions a:focus-visible,
+.ccp-home-activity a:focus-visible,
+.ccp-home-stats a:focus-visible,
+.ccp-home-history a:focus-visible,
+.ccp-home-contact a:focus-visible,
+.ccp-home-hero button:focus-visible,
+.ccp-home-shortcuts button:focus-visible,
+.ccp-home-contact button:focus-visible {
+    outline: 3px solid var(--ccp-gold-600);
+    outline-offset: 3px;
+}
+
+
+
+/* ==========================================================
+   15. TABLET
+   ========================================================== */
+
+@media (max-width: 1024px) {
+
+    .main-navigation .full-container,
+    .site-header .full-container,
+    #main .full-container,
+    #footer-widgets.full-container {
+        width: calc(100% - 36px);
+    }
+
+
+    .ccp-home-hero__content {
+        grid-template-columns:
+            minmax(0, 1fr)
+            minmax(0, 1fr);
+    }
+
+
+    .ccp-home-hero__text {
+        padding: 2.5rem;
+    }
+
+
+    .ccp-home-shortcuts__grid {
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+    }
+
+
+    .ccp-home-regions__grid {
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+    }
+
+
+    .ccp-home-activity__grid {
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+    }
+
+
+    .ccp-home-stats__grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+
+/* ==========================================================
+   16. MOBILE
+   ========================================================== */
+
+@media (max-width: 700px) {
+
+    .main-navigation .full-container,
+    .site-header .full-container,
+    #main .full-container,
+    #footer-widgets.full-container {
+        width: calc(100% - 32px);
+    }
+
+
+    .ccp-section-header {
+        align-items: flex-start;
+        flex-direction: column;
+
+        gap: var(--ccp-space-2);
+    }
+
+
+    /* ------------------------------------------------------
+       Hero
+       ------------------------------------------------------ */
+
+    .ccp-home-hero__content {
+        grid-template-columns: 1fr;
+
+        min-height: 0;
+    }
+
+
+    .ccp-home-hero__text {
+        padding: 2.5rem 1.25rem;
+    }
+
+
+    .ccp-home-hero__text h1 {
+        font-size: clamp(2rem, 10vw, 2.8rem);
+    }
+
+
+    .ccp-home-hero__actions {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+
+    .ccp-home-hero__actions .ccp-button {
+        width: 100%;
+    }
+
+
+    .ccp-home-hero__media {
+        min-height: 260px;
+    }
+
+
+    /* ------------------------------------------------------
+       Atalhos
+       ------------------------------------------------------ */
+
+    .ccp-home-shortcuts__grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+
+    /* ------------------------------------------------------
+       Regiões
+       ------------------------------------------------------ */
+
+    .ccp-home-regions__grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* ------------------------------------------------------
+       Atividade
+       ------------------------------------------------------ */
+
+    .ccp-home-activity__grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .ccp-document-list li {
+        grid-template-columns: 1fr;
+
+        gap: var(--ccp-space-1);
+    }
+
+
+    /* ------------------------------------------------------
+       Estatísticas
+       ------------------------------------------------------ */
+
+    .ccp-home-stats__grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* ------------------------------------------------------
+       Timeline
+       ------------------------------------------------------ */
+
+    .ccp-timeline {
+        grid-template-columns: 1fr;
+
+        gap: var(--ccp-space-6);
+    }
+
+
+    /* ------------------------------------------------------
+       Contato
+       ------------------------------------------------------ */
+
+    .ccp-home-contact__content {
+        align-items: stretch;
+        flex-direction: column;
+
+        gap: var(--ccp-space-5);
+    }
+
+
+    .ccp-home-contact__action {
+        width: 100%;
+    }
+
+
+    .ccp-button--contact {
+        width: 100%;
+    }
+
+}
+
+
+
+/* ==========================================================
+   17. MOBILE PEQUENO
+   ========================================================== */
+
+@media (max-width: 480px) {
+
+    .ccp-home-shortcuts__grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .ccp-shortcut {
+        min-height: 120px;
+    }
+
+}
+
+/* ==========================================================
+   VANTAGE — MENU PRINCIPAL
+   ========================================================== */
+
+/* Barra principal */
+.main-navigation {
+    background: var(--ccp-white);
+    border-bottom: 1px solid var(--ccp-border);
+    box-shadow: 0 2px 10px rgb(0 51 38 / 0.05);
+}
+
+
+/* Itens de primeiro nível */
+.main-navigation ul li a {
+    color: var(--ccp-green-950);
+    font-family: var(--ccp-font-body);
+    font-weight: 600;
+}
+
+
+/* Hover e foco dos itens principais */
+.main-navigation ul li:hover > a,
+.main-navigation ul li:focus-within > a,
+.main-navigation ul li a:hover,
+.main-navigation ul li a:focus {
+    background: var(--ccp-cream);
+    color: var(--ccp-green-900);
+}
+
+
+/* Página / item atual */
+.main-navigation ul li.current-menu-item > a,
+.main-navigation ul li.current-menu-ancestor > a,
+.main-navigation ul li.current_page_item > a,
+.main-navigation ul li.current_page_ancestor > a {
+    background: var(--ccp-green-900);
+    color: var(--ccp-white);
+}
+
+
+/* ==========================================================
+   SUBMENUS
+   ========================================================== */
+
+.main-navigation ul ul {
+    background: var(--ccp-white);
+    border: 1px solid var(--ccp-border);
+    box-shadow: var(--ccp-shadow-md);
+}
+
+
+.main-navigation ul ul li {
+    background: var(--ccp-white);
+}
+
+
+.main-navigation ul ul li a {
+    color: var(--ccp-text);
+    font-weight: 500;
+}
+
+
+.main-navigation ul ul li:hover > a,
+.main-navigation ul ul li:focus-within > a,
+.main-navigation ul ul li a:hover,
+.main-navigation ul ul li a:focus {
+    background: var(--ccp-cream);
+    color: var(--ccp-green-900);
+}
+
+
+/* Item atual dentro de submenu */
+.main-navigation ul ul li.current-menu-item > a,
+.main-navigation ul ul li.current-menu-ancestor > a {
+    background: var(--ccp-green-900);
+    color: var(--ccp-white);
+}
+
+
+/* ==========================================================
+   ÍCONE / ÁREA DE PESQUISA DO VANTAGE
+   ========================================================== */
+
+.main-navigation .search-icon {
+    background: var(--ccp-green-900);
+}
+
+
+.main-navigation .search-icon svg,
+.main-navigation .search-icon .vantage-icon-search {
+    color: var(--ccp-white);
+}
+
+
+.main-navigation .search-icon:hover,
+.main-navigation .search-icon:focus-within {
+    background: var(--ccp-green-800);
+}
+
+
+/* Campo aberto da pesquisa */
+.main-navigation .search-form {
+    background: var(--ccp-white);
+}
+
+
+.main-navigation .search-form input[type="search"] {
+    background: var(--ccp-white);
+    color: var(--ccp-text);
+    border: 1px solid var(--ccp-border);
+}
+
+
+/* ==========================================================
+   ACESSIBILIDADE DO MENU
+   ========================================================== */
+
+.main-navigation a:focus-visible {
+    outline: 3px solid var(--ccp-gold-600);
+    outline-offset: -3px;
+}
+
+/* ==========================================================
+   CCP — CABEÇALHO INSTITUCIONAL
+   ========================================================== */
+
+#masthead.site-header {
+    position: relative;
+
+    margin: 0;
+    padding: 0;
+
+    background: var(--ccp-white);
+
+    border: 0;
+    box-shadow: none;
+}
+
+
+/* ----------------------------------------------------------
+   Container interno
+   Mesmo eixo horizontal do menu e do restante do portal
+   ---------------------------------------------------------- */
+
+#masthead .hgroup.full-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: min(
+        calc(100% - 48px),
+        var(--ccp-container)
+    );
+
+    max-width: var(--ccp-container);
+
+    margin-right: auto;
+    margin-left: auto;
+
+    padding: 22px 0 20px;
+}
+
+
+/* ----------------------------------------------------------
+   Área da identidade
+   ---------------------------------------------------------- */
+
+#masthead .logo-wrapper {
+    display: flex;
+    align-items: center;
+
+    margin: 0;
+    padding: 0;
+}
+
+
+#masthead .logo {
+    display: flex;
+    align-items: center;
+
+    gap: 16px;
+
+    margin: 0;
+    padding: 0;
+
+    color: var(--ccp-green-900);
+
+    text-decoration: none;
+}
+
+
+/* Símbolo CCP */
+
+#masthead .logo img {
+    display: block;
+
+    width: 68px;
+    height: 68px;
+
+    max-width: 68px;
+    max-height: 68px;
+
+    margin: 0;
+
+    object-fit: contain;
+}
+
+
+/* Nome institucional */
+
+#masthead .logo .site-title,
+#masthead .site-title {
+    margin: 0;
+    padding: 0;
+
+    max-width: 390px;
+
+    color: var(--ccp-green-900);
+
+    font-family: var(--ccp-font-body);
+    font-size: clamp(1.35rem, 2vw, 1.75rem);
+    font-weight: 650;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+}
+
+
+/* Evita estilos antigos do Vantage no título */
+
+#masthead .site-title a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* ----------------------------------------------------------
+   Texto/widget à direita
+
+   Mantemos espaço disponível caso futuramente seja útil.
+   Por enquanto, se estiver vazio, não interfere.
+   ---------------------------------------------------------- */
+
+#masthead .support-text {
+    color: var(--ccp-text-muted);
+
+    font-family: var(--ccp-font-body);
+    font-size: 0.9rem;
+}
+
+
+/* ----------------------------------------------------------
+   Faixa inspirada na bandeira portuguesa
+
+   40% verde / 60% vermelho.
+   ---------------------------------------------------------- */
+
+#masthead::after {
+    content: "";
+
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    display: block;
+
+    width: 100%;
+    height: 3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--ccp-green-800) 0%,
+            var(--ccp-green-800) 40%,
+            var(--ccp-red-700) 40%,
+            var(--ccp-red-700) 100%
+        );
+
+    pointer-events: none;
+}
+
+
+/* ==========================================================
+   CABEÇALHO — TABLET
+   ========================================================== */
+
+@media (max-width: 1024px) {
+
+    #masthead .hgroup.full-container {
+        width: calc(100% - 36px);
+
+        padding-top: 18px;
+        padding-bottom: 18px;
+    }
+
+
+    #masthead .logo img {
+        width: 60px;
+        height: 60px;
+
+        max-width: 60px;
+        max-height: 60px;
+    }
+
+}
+
+
+/* ==========================================================
+   CABEÇALHO — MOBILE
+   ========================================================== */
+
+@media (max-width: 700px) {
+
+    #masthead .hgroup.full-container {
+        width: calc(100% - 32px);
+
+        padding-top: 14px;
+        padding-bottom: 14px;
+    }
+
+
+    #masthead .logo {
+        gap: 12px;
+    }
+
+
+    #masthead .logo img {
+        width: 50px;
+        height: 50px;
+
+        max-width: 50px;
+        max-height: 50px;
+    }
+
+
+    #masthead .logo .site-title,
+    #masthead .site-title {
+        max-width: 250px;
+
+        font-size: 1.15rem;
+    }
+
+
+    /*
+     * Não precisamos de conteúdo auxiliar à direita
+     * em telas pequenas.
+     */
+
+    #masthead .support-text,
+    #masthead #header-sidebar {
+        display: none;
+    }
+
+}
+
+/* ==========================================================
+   IDENTIDADE VISUAL DO CABEÇALHO
+   ========================================================== */
+
+#masthead .hgroup.full-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: min(
+        calc(100% - 48px),
+        var(--ccp-container)
+    );
+
+    max-width: var(--ccp-container);
+
+    margin-inline: auto;
+
+    padding: 26px 0 24px;
+}
+
+
+/* Conjunto símbolo + nome */
+
+#masthead .logo-wrapper {
+    display: flex;
+    align-items: center;
+
+    margin: 0;
+    padding: 0;
+}
+
+
+#masthead .logo {
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+
+    margin: 0;
+    padding: 0;
+
+    text-decoration: none;
+}
+
+
+/* Símbolo CCP */
+
+#masthead .logo img {
+    display: block;
+
+    width: 82px;
+    height: 82px;
+
+    max-width: none;
+    max-height: none;
+
+    margin: 0;
+
+    object-fit: contain;
+}
+
+
+/* Nome institucional */
+
+#masthead .site-title {
+    margin: 0;
+
+    max-width: 420px;
+
+    color: var(--ccp-green-900);
+
+    font-family: var(--ccp-font-body);
+    font-size: 1.65rem;
+    font-weight: 650;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+}
+
+
+#masthead .site-title a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* Remove tagline se aparecer */
+
+#masthead .site-description {
+    display: none;
+}
+
+#masthead .hgroup {
+    position: relative;
+}
+
+
+#masthead .hgroup::after {
+    content: "";
+
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    height: 3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--ccp-green-800) 0 40%,
+            var(--ccp-red-700) 40% 100%
+        );
+}
+
+/* ==========================================================
+   CCP — LOGO DO CABEÇALHO
+   Centralização e dimensionamento
+   ========================================================== */
+
+/* Área branca do cabeçalho */
+#masthead .hgroup.full-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 130px;
+
+    padding-top: 24px;
+    padding-bottom: 24px;
+}
+
+
+/* Remove o alinhamento lateral padrão do Vantage */
+#masthead .logo-wrapper {
+    float: none !important;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+
+    margin: 0 !important;
+    padding: 0;
+}
+
+
+/* Link que envolve a logo */
+#masthead .logo {
+    float: none !important;
+
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+
+    margin: 0 auto !important;
+    padding: 0;
+}
+
+
+/* Logo horizontal */
+#masthead .logo img {
+    display: block;
+
+    width: 520px !important;
+    max-width: min(520px, 85vw) !important;
+
+    height: auto !important;
+    max-height: none !important;
+
+    margin: 0 auto !important;
+}
+
+
+/* ==========================================================
+   TABLET
+   ========================================================== */
+
+@media (max-width: 1024px) {
+
+    #masthead .hgroup.full-container {
+        min-height: 110px;
+
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    #masthead .logo img {
+        width: 440px !important;
+        max-width: 80vw !important;
+    }
+
+}
+
+
+/* ==========================================================
+   MOBILE
+   ========================================================== */
+
+@media (max-width: 700px) {
+
+    #masthead .hgroup.full-container {
+        min-height: 90px;
+
+        padding-top: 16px;
+        padding-bottom: 16px;
+    }
+
+    #masthead .logo img {
+        width: 360px !important;
+        max-width: 88vw !important;
+    }
+
+}
+
+/* ==========================================================
+   CCP — FAIXA E MENU EM LARGURA TOTAL
+   ========================================================== */
+
+/* Cabeçalho continua branco e em largura total */
+#masthead.site-header {
+    width: 100%;
+    background: var(--ccp-white);
+}
+
+
+/* Menu ocupa a tela inteira */
+.main-navigation {
+    position: relative;
+    width: 100%;
+    margin: 0;
+    background: var(--ccp-green-900);
+    border: 0;
+    box-shadow: none;
+}
+
+
+/* Faixa verde/vermelha acima do menu em largura total */
+.main-navigation::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    display: block;
+    width: 100%;
+    height: 3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--ccp-green-800) 0%,
+            var(--ccp-green-800) 40%,
+            var(--ccp-red-700) 40%,
+            var(--ccp-red-700) 100%
+        );
+}
+
+
+/* Container interno do menu continua alinhado ao portal */
+.main-navigation .full-container {
+    width: min(
+        calc(100% - 48px),
+        var(--ccp-container)
+    );
+    max-width: var(--ccp-container);
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+/* Garante espaço abaixo da faixa */
+.main-navigation ul {
+    padding-top: 3px;
+}
+
+
+/* ==========================================================
+   MENU — CORES
+   ========================================================== */
+
+.main-navigation ul li a {
+    color: var(--ccp-white);
+    font-weight: 600;
+}
+
+
+.main-navigation ul li:hover > a,
+.main-navigation ul li:focus-within > a,
+.main-navigation ul li a:hover,
+.main-navigation ul li a:focus {
+    background: var(--ccp-green-800);
+    color: var(--ccp-white);
+}
+
+
+.main-navigation ul li.current-menu-item > a,
+.main-navigation ul li.current-menu-ancestor > a,
+.main-navigation ul li.current_page_item > a,
+.main-navigation ul li.current_page_ancestor > a {
+    background: var(--ccp-green-950);
+    color: var(--ccp-white);
+}
+
+
+/* Submenus */
+.main-navigation ul ul {
+    background: var(--ccp-white);
+    border: 1px solid var(--ccp-border);
+    box-shadow: var(--ccp-shadow-md);
+}
+
+.main-navigation ul ul li a {
+    color: var(--ccp-text);
+    font-weight: 500;
+}
+
+.main-navigation ul ul li:hover > a,
+.main-navigation ul ul li:focus-within > a,
+.main-navigation ul ul li a:hover,
+.main-navigation ul ul li a:focus {
+    background: var(--ccp-cream);
+    color: var(--ccp-green-900);
+}
+
+
+/* Busca do menu */
+.main-navigation .search-icon {
+    background: var(--ccp-green-950);
+}
+
+.main-navigation .search-icon:hover,
+.main-navigation .search-icon:focus-within {
+    background: var(--ccp-green-800);
+}
+
+
+/* ==========================================================
+   RESPONSIVIDADE
+   ========================================================== */
+
+@media (max-width: 1024px) {
+    .main-navigation .full-container {
+        width: calc(100% - 36px);
+    }
+}
+
+@media (max-width: 700px) {
+    .main-navigation .full-container {
+        width: calc(100% - 32px);
+    }
+}
