@@ -800,6 +800,138 @@ body.home #primary > #content > article > .entry-main > .entry-header {
 }
 
 
+/* ==========================================================
+   MEMÓRIA — HOME E PÁGINA INTERNA
+   ========================================================== */
+
+.ccp-home-memory,
+.ccp-home-memory *,
+.ccp-memory-page,
+.ccp-memory-page * {
+    box-sizing: border-box;
+}
+
+
+.ccp-home-memory,
+.ccp-memory-overview,
+.ccp-memory-navigation {
+    padding-block: var(--ccp-space-7);
+}
+
+
+.ccp-home-memory,
+.ccp-memory-navigation {
+    background: var(--ccp-surface);
+}
+
+
+.ccp-memory-page {
+    color: var(--ccp-text);
+
+    font-family: var(--ccp-font-body);
+    line-height: 1.6;
+}
+
+
+.ccp-home-memory .ccp-memory-grid {
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+}
+
+
+.ccp-memory-page .ccp-memory-grid {
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+}
+
+
+.ccp-memory-overview__grid {
+    display: grid;
+    align-items: start;
+
+    grid-template-columns:
+        minmax(0, 1.4fr)
+        minmax(280px, 0.8fr);
+
+    gap: var(--ccp-space-7);
+}
+
+
+.ccp-memory-overview__text,
+.ccp-memory-facts {
+    min-width: 0;
+}
+
+
+.ccp-memory-overview__text {
+    max-width: 46rem;
+
+    color: var(--ccp-text);
+}
+
+
+.ccp-memory-overview__text p {
+    margin: 0;
+
+    line-height: 1.7;
+    text-align: left;
+
+    overflow-wrap: anywhere;
+}
+
+
+.ccp-memory-overview__text p + p {
+    margin-top: var(--ccp-space-4);
+}
+
+
+.ccp-memory-facts {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: var(--ccp-space-4);
+
+    margin: 0;
+}
+
+
+.ccp-memory-fact {
+    min-width: 0;
+
+    padding: var(--ccp-space-4);
+
+    border: 1px solid var(--ccp-border);
+    border-radius: var(--ccp-radius-md);
+
+    background: var(--ccp-cream);
+}
+
+
+.ccp-memory-fact dt {
+    margin: 0 0 var(--ccp-space-2);
+
+    color: var(--ccp-green-900);
+
+    font-family: var(--ccp-font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+
+.ccp-memory-fact dd {
+    margin: 0;
+
+    color: var(--ccp-text-muted);
+
+    line-height: 1.55;
+
+    overflow-wrap: anywhere;
+}
+
+
 
 /* ==========================================================
    05. HERO
@@ -2129,6 +2261,18 @@ body.home #primary > #content > article > .entry-main > .entry-header {
     }
 
 
+    .ccp-home-memory .ccp-memory-grid,
+    .ccp-memory-page .ccp-memory-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+
+    .ccp-memory-overview__grid {
+        grid-template-columns: 1fr;
+    }
+
+
     .ccp-home-commissions__grid > .ccp-feature-card,
     .ccp-home-commissions__grid > .ccp-feature-card--wide {
         grid-column: auto;
@@ -2259,6 +2403,14 @@ body.home #primary > #content > article > .entry-main > .entry-header {
 
     .ccp-institutional-overview__grid,
     .ccp-institutional-facts {
+        grid-template-columns: 1fr;
+    }
+
+
+    .ccp-home-memory .ccp-memory-grid,
+    .ccp-memory-page .ccp-memory-grid,
+    .ccp-memory-overview__grid,
+    .ccp-memory-facts {
         grid-template-columns: 1fr;
     }
 
