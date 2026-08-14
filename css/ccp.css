@@ -675,6 +675,131 @@ body.home #primary > #content > article > .entry-main > .entry-header {
 }
 
 
+/* ==========================================================
+   INSTITUCIONAL — HOME E PÁGINA INTERNA
+   ========================================================== */
+
+.ccp-home-institutional,
+.ccp-home-institutional *,
+.ccp-institutional-page,
+.ccp-institutional-page * {
+    box-sizing: border-box;
+}
+
+
+.ccp-home-institutional,
+.ccp-institutional-overview,
+.ccp-institutional-navigation {
+    padding-block: var(--ccp-space-7);
+}
+
+
+.ccp-institutional-page {
+    color: var(--ccp-text);
+
+    font-family: var(--ccp-font-body);
+    line-height: 1.6;
+}
+
+
+.ccp-institutional-grid {
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+}
+
+
+.ccp-institutional-overview__grid {
+    display: grid;
+    align-items: start;
+
+    grid-template-columns:
+        minmax(0, 1.4fr)
+        minmax(280px, 0.8fr);
+
+    gap: var(--ccp-space-7);
+}
+
+
+.ccp-institutional-overview__text,
+.ccp-institutional-facts {
+    min-width: 0;
+}
+
+
+.ccp-institutional-overview__text {
+    max-width: 46rem;
+
+    color: var(--ccp-text);
+}
+
+
+.ccp-institutional-overview__text p {
+    margin: 0;
+
+    line-height: 1.7;
+    text-align: left;
+
+    overflow-wrap: anywhere;
+}
+
+
+.ccp-institutional-overview__text p + p {
+    margin-top: var(--ccp-space-4);
+}
+
+
+.ccp-institutional-facts {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: var(--ccp-space-4);
+
+    margin: 0;
+}
+
+
+.ccp-institutional-fact {
+    min-width: 0;
+
+    padding: var(--ccp-space-4);
+
+    border: 1px solid var(--ccp-border);
+    border-radius: var(--ccp-radius-md);
+
+    background: var(--ccp-cream);
+}
+
+
+.ccp-institutional-fact dt {
+    margin: 0 0 var(--ccp-space-2);
+
+    color: var(--ccp-green-800);
+
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 1.35;
+}
+
+
+.ccp-institutional-fact dd {
+    margin: 0;
+
+    color: var(--ccp-text);
+
+    font-weight: 600;
+    line-height: 1.45;
+
+    overflow-wrap: anywhere;
+}
+
+
+.ccp-institutional-navigation {
+    background: var(--ccp-surface);
+}
+
+
 
 /* ==========================================================
    05. HERO
@@ -1992,9 +2117,15 @@ body.home #primary > #content > article > .entry-main > .entry-header {
 
     .ccp-home-cp__grid,
     .ccp-home-commissions__grid,
-    .ccp-home-youth__grid {
+    .ccp-home-youth__grid,
+    .ccp-institutional-grid {
         grid-template-columns:
             repeat(2, minmax(0, 1fr));
+    }
+
+
+    .ccp-institutional-overview__grid {
+        grid-template-columns: 1fr;
     }
 
 
@@ -2120,7 +2251,14 @@ body.home #primary > #content > article > .entry-main > .entry-header {
 
     .ccp-home-cp__grid,
     .ccp-home-commissions__grid,
-    .ccp-home-youth__grid {
+    .ccp-home-youth__grid,
+    .ccp-institutional-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .ccp-institutional-overview__grid,
+    .ccp-institutional-facts {
         grid-template-columns: 1fr;
     }
 
