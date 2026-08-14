@@ -747,21 +747,324 @@ body.home #primary > #content > article > .entry-main > .entry-header {
    ========================================================== */
 
 .ccp-home-news-header {
-    padding-top: var(--ccp-space-7);
+    padding: var(--ccp-space-7) 0 var(--ccp-space-5);
 }
 
 
-.ccp-home-news-header .ccp-section-header {
-    margin-bottom: var(--ccp-space-5);
+.ccp-home-news-header .ccp-section-heading {
+    display: grid;
+    align-items: center;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        auto;
+
+    gap: var(--ccp-space-6);
 }
 
 
-/*
- * O layout do Post Loop será tratado depois que analisarmos
- * o HTML efetivamente produzido pelo widget do SiteOrigin.
- *
- * Não criamos seletores hipotéticos aqui.
- */
+.ccp-home-news-header .ccp-section-heading__text {
+    min-width: 0;
+}
+
+
+.ccp-home-news-header .ccp-section-heading__eyebrow {
+    display: block;
+
+    margin-bottom: var(--ccp-space-2);
+
+    color: var(--ccp-red-700);
+
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+
+.ccp-home-news-header .ccp-section-heading h2 {
+    margin-bottom: 0;
+}
+
+
+.ccp-home-news-header .ccp-section-heading__text p {
+    max-width: 46rem;
+
+    margin: var(--ccp-space-3) 0 0;
+
+    color: var(--ccp-text-muted);
+}
+
+
+.ccp-home-news-header .ccp-section-heading__link {
+    display: inline-flex;
+    align-items: center;
+
+    min-height: 44px;
+
+    color: var(--ccp-red-700);
+
+    font-weight: 600;
+    text-decoration: none;
+}
+
+
+.ccp-home-news-header .ccp-section-heading__link:hover {
+    color: var(--ccp-red-800);
+
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+}
+
+
+/* ----------------------------------------------------------
+   Post Loop e grade
+   ---------------------------------------------------------- */
+
+.ccp-home-news-loop {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    width: calc(100% - 48px);
+    max-width: var(--ccp-container);
+
+    gap: var(--ccp-space-5);
+
+    margin-right: auto;
+    margin-left: auto;
+    padding-bottom: var(--ccp-space-7);
+
+    box-sizing: border-box;
+
+    color: var(--ccp-text);
+
+    font-family: var(--ccp-font-body);
+    line-height: 1.6;
+}
+
+
+.ccp-home-news-loop * {
+    box-sizing: border-box;
+}
+
+
+.ccp-home-news-loop article {
+    display: flex;
+    flex-direction: column;
+
+    min-width: 0;
+    height: 100%;
+
+    margin: 0;
+
+    overflow: hidden;
+
+    border: 1px solid var(--ccp-border);
+    border-top: 4px solid var(--ccp-green-800);
+    border-radius: var(--ccp-radius-md);
+
+    background: var(--ccp-white);
+    box-shadow: var(--ccp-shadow-sm);
+
+    transition:
+        border-color var(--ccp-transition),
+        box-shadow var(--ccp-transition),
+        transform var(--ccp-transition);
+}
+
+
+.ccp-home-news-loop article:hover {
+    border-color: rgb(0 75 53 / 0.3);
+    border-top-color: var(--ccp-green-800);
+
+    box-shadow: var(--ccp-shadow-md);
+
+    transform: translateY(-2px);
+}
+
+
+/* Neutraliza apenas no componente as dimensões do Vantage. */
+
+.ccp-home-news-loop .entry-main {
+    float: none;
+
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+
+    width: 100%;
+    min-width: 0;
+
+    margin: 0;
+    padding: var(--ccp-space-5);
+}
+
+
+.ccp-home-news-loop .entry-header {
+    margin: 0 0 var(--ccp-space-4);
+    padding: 0;
+}
+
+
+.ccp-home-news-loop .entry-title {
+    margin: 0;
+    padding: 0;
+
+    color: var(--ccp-green-900);
+
+    font-family: var(--ccp-font-heading);
+    font-size: clamp(1.25rem, 2vw, 1.55rem);
+    line-height: 1.25;
+}
+
+
+.ccp-home-news-loop .entry-title a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+.ccp-home-news-loop .entry-title a:hover {
+    color: var(--ccp-red-700);
+    text-decoration: underline;
+    text-decoration-thickness: 0.08em;
+    text-underline-offset: 0.16em;
+}
+
+
+.ccp-home-news-loop .entry-meta {
+    margin: var(--ccp-space-2) 0 0;
+    padding: 0;
+
+    color: var(--ccp-text-muted);
+
+    font-size: 0.82rem;
+    line-height: 1.45;
+}
+
+
+.ccp-home-news-loop .entry-meta a {
+    color: inherit;
+}
+
+
+.ccp-home-news-loop .entry-meta a:hover {
+    color: var(--ccp-red-700);
+}
+
+
+.ccp-home-news-loop .entry-content,
+.ccp-home-news-loop .entry-summary {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+
+    min-width: 0;
+
+    margin: 0;
+    padding: 0;
+
+    color: var(--ccp-text-muted);
+
+    font-size: 0.95rem;
+    line-height: 1.65;
+}
+
+
+.ccp-home-news-loop .entry-content > p:first-of-type,
+.ccp-home-news-loop .entry-summary > p:first-of-type {
+    display: -webkit-box;
+
+    margin: 0 0 var(--ccp-space-4);
+
+    overflow: hidden;
+
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+}
+
+
+.ccp-home-news-loop .more-link {
+    align-self: flex-start;
+
+    margin-top: auto;
+    padding: 0;
+
+    border: 0;
+
+    background: transparent;
+    box-shadow: none;
+
+    color: var(--ccp-red-700);
+
+    font-weight: 600;
+    text-decoration: none;
+}
+
+
+.ccp-home-news-loop .more-link:hover {
+    color: var(--ccp-red-800);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+}
+
+
+.ccp-home-news-loop .entry-thumbnail {
+    float: none;
+
+    width: 100%;
+
+    margin: 0 0 var(--ccp-space-4);
+}
+
+
+.ccp-home-news-loop .entry-thumbnail a,
+.ccp-home-news-loop .entry-thumbnail img {
+    display: block;
+
+    width: 100%;
+}
+
+
+.ccp-home-news-loop .entry-thumbnail img {
+    height: auto;
+
+    aspect-ratio: 16 / 9;
+    border-radius: var(--ccp-radius-sm);
+
+    object-fit: cover;
+}
+
+
+.ccp-home-news-loop a:focus-visible {
+    outline: 3px solid var(--ccp-gold-600);
+    outline-offset: 3px;
+}
+
+
+/* A paginação deve ser desativada no widget Post Loop. */
+
+.ccp-home-news-loop .pagination,
+.ccp-home-news-loop .posts-navigation {
+    display: none;
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+
+    .ccp-home-news-loop article {
+        transition: none;
+    }
+
+
+    .ccp-home-news-loop article:hover {
+        transform: none;
+    }
+
+}
 
 
 
@@ -1253,6 +1556,14 @@ body.home #primary > #content > article > .entry-main > .entry-header {
     }
 
 
+    .ccp-home-news-loop {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        width: calc(100% - 36px);
+    }
+
+
     .ccp-home-regions__grid {
         grid-template-columns:
             repeat(3, minmax(0, 1fr));
@@ -1312,6 +1623,33 @@ body.home #primary > #content > article > .entry-main > .entry-header {
         flex-direction: column;
 
         gap: var(--ccp-space-2);
+    }
+
+
+    .ccp-home-news-header {
+        padding-top: var(--ccp-space-6);
+    }
+
+
+    .ccp-home-news-header .ccp-section-heading {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+
+        gap: var(--ccp-space-4);
+    }
+
+
+    .ccp-home-news-loop {
+        grid-template-columns: 1fr;
+
+        width: calc(100% - 32px);
+        gap: var(--ccp-space-4);
+    }
+
+
+    .ccp-home-news-loop .entry-main {
+        padding: var(--ccp-space-4);
     }
 
 
