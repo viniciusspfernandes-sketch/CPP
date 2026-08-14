@@ -1491,7 +1491,99 @@ body.home #primary > #content > article > .entry-main > .entry-header {
 
 
 /* ==========================================================
-   14. LINKS E FOCO — ACESSIBILIDADE
+   14. RODAPÉ — LINKS ÚTEIS
+   ========================================================== */
+
+.ccp-footer-links {
+    width: 100%;
+    min-width: 0;
+
+    color: var(--ccp-white);
+
+    font-family: var(--ccp-font-body);
+    line-height: 1.5;
+}
+
+
+.ccp-footer-links h2 {
+    margin: 0 0 var(--ccp-space-5);
+    padding: 0;
+
+    color: var(--ccp-white);
+
+    font-family: var(--ccp-font-heading);
+    font-size: clamp(1.4rem, 2vw, 1.8rem);
+    line-height: 1.2;
+}
+
+
+.ccp-footer-links__grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: var(--ccp-space-5) var(--ccp-space-7);
+
+    width: 100%;
+    min-width: 0;
+}
+
+
+.ccp-footer-links__list {
+    display: grid;
+
+    gap: var(--ccp-space-3);
+
+    min-width: 0;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+
+.ccp-footer-links__list li {
+    min-width: 0;
+
+    margin: 0;
+    padding: 0;
+}
+
+
+.ccp-footer-links__list a {
+    display: inline-block;
+
+    max-width: 100%;
+    padding-block: var(--ccp-space-1);
+
+    color: var(--ccp-white);
+
+    overflow-wrap: anywhere;
+
+    text-decoration: none;
+}
+
+
+.ccp-footer-links__list a:hover {
+    color: var(--ccp-cream);
+
+    text-decoration: underline;
+    text-decoration-thickness: 0.08em;
+    text-underline-offset: 0.2em;
+}
+
+
+.ccp-footer-links__list a:focus-visible {
+    outline: 3px solid var(--ccp-gold-600);
+    outline-offset: 3px;
+}
+
+
+
+/* ==========================================================
+   15. LINKS E FOCO — ACESSIBILIDADE
    ========================================================== */
 
 .ccp-home-hero a:focus-visible,
@@ -1512,7 +1604,7 @@ body.home #primary > #content > article > .entry-main > .entry-header {
 
 
 /* ==========================================================
-   15. TABLET
+   16. TABLET
    ========================================================== */
 
 @media (max-width: 1024px) {
@@ -1564,6 +1656,12 @@ body.home #primary > #content > article > .entry-main > .entry-header {
     }
 
 
+    .ccp-footer-links__grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+
     .ccp-home-regions__grid {
         grid-template-columns:
             repeat(3, minmax(0, 1fr));
@@ -1586,7 +1684,7 @@ body.home #primary > #content > article > .entry-main > .entry-header {
 
 
 /* ==========================================================
-   16. MOBILE
+   17. MOBILE
    ========================================================== */
 
 @media (max-width: 700px) {
@@ -1650,6 +1748,18 @@ body.home #primary > #content > article > .entry-main > .entry-header {
 
     .ccp-home-news-loop .entry-main {
         padding: var(--ccp-space-4);
+    }
+
+
+    .ccp-footer-links h2 {
+        margin-bottom: var(--ccp-space-4);
+    }
+
+
+    .ccp-footer-links__grid {
+        grid-template-columns: 1fr;
+
+        gap: var(--ccp-space-5);
     }
 
 
@@ -1777,7 +1887,7 @@ body.home #primary > #content > article > .entry-main > .entry-header {
 
 
 /* ==========================================================
-   17. MOBILE PEQUENO
+   18. MOBILE PEQUENO
    ========================================================== */
 
 @media (max-width: 480px) {
