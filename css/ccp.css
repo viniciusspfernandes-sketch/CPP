@@ -194,13 +194,13 @@ body.home #primary > #content > article > .entry-main > .entry-header {
 #masthead .hgroup.full-container {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     width: calc(100% - 48px);
     max-width: var(--ccp-container);
-    min-height: 130px;
     margin-right: auto;
     margin-left: auto;
-    padding: 24px 0;
+    padding: var(--ccp-space-4) 0;
+    gap: var(--ccp-space-6);
 }
 
 
@@ -208,8 +208,10 @@ body.home #primary > #content > article > .entry-main > .entry-header {
     float: none;
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 100%;
+    justify-content: flex-start;
+    flex: 1 1 auto;
+    width: auto;
+    min-width: 0;
     margin: 0;
     padding: 0;
 }
@@ -219,9 +221,10 @@ body.home #primary > #content > article > .entry-main > .entry-header {
     float: none;
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 100%;
-    margin: 0 auto;
+    justify-content: flex-start;
+    width: auto;
+    max-width: 100%;
+    margin: 0;
     padding: 0;
     text-decoration: none;
 }
@@ -229,12 +232,11 @@ body.home #primary > #content > article > .entry-main > .entry-header {
 
 #masthead .logo img {
     display: block;
-    width: 520px;
-    max-width: min(520px, 85vw);
+    width: clamp(280px, 35vw, 420px);
+    max-width: 100%;
     height: auto;
     max-height: none;
-    margin: 0 auto;
-    object-fit: contain;
+    margin: 0;
 }
 
 
@@ -250,6 +252,78 @@ body.home #primary > #content > article > .entry-main > .entry-header {
     color: var(--ccp-text-muted);
     font-family: var(--ccp-font-body);
     font-size: 0.9rem;
+}
+
+
+#masthead #header-sidebar {
+    display: flex;
+    align-items: center;
+    flex: 0 0 auto;
+    width: auto;
+    height: auto;
+    margin: 0 0 0 auto;
+}
+
+
+#masthead #header-sidebar .widget {
+    margin: 0;
+}
+
+
+.ccp-header-utility {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    max-width: 100%;
+}
+
+
+.ccp-header-utility__link,
+.ccp-header-utility__link:visited {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    min-height: 44px;
+    max-width: 100%;
+    padding: var(--ccp-space-3) var(--ccp-space-4);
+    gap: var(--ccp-space-2);
+    border: 1px solid var(--ccp-border);
+    border-radius: var(--ccp-radius-md);
+    background: var(--ccp-cream);
+    color: var(--ccp-green-900);
+    font-family: var(--ccp-font-body);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    line-height: 1.25;
+    text-align: center;
+    text-decoration: none;
+    transition:
+        border-color var(--ccp-transition),
+        background-color var(--ccp-transition),
+        color var(--ccp-transition);
+}
+
+
+.ccp-header-utility__link:hover {
+    border-color: var(--ccp-green-800);
+    background: var(--ccp-white);
+    color: var(--ccp-green-800);
+}
+
+
+.ccp-header-utility__link:focus-visible {
+    outline: 3px solid var(--ccp-gold-600);
+    outline-offset: 3px;
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+
+    .ccp-header-utility__link {
+        transition: none;
+    }
+
 }
 
 
@@ -2213,14 +2287,13 @@ body.home #primary > #content > article > .entry-main > .entry-header {
 
     #masthead .hgroup.full-container {
         width: calc(100% - 36px);
-        min-height: 110px;
-        padding: 20px 0;
+        padding: var(--ccp-space-3) 0;
+        gap: var(--ccp-space-5);
     }
 
 
     #masthead .logo img {
-        width: 440px;
-        max-width: 80vw;
+        width: clamp(280px, 38vw, 380px);
     }
 
 
@@ -2329,15 +2402,39 @@ body.home #primary > #content > article > .entry-main > .entry-header {
 
 
     #masthead .hgroup.full-container {
+        align-items: center;
+        flex-direction: column;
         width: calc(100% - 32px);
-        min-height: 90px;
-        padding: 16px 0;
+        padding: var(--ccp-space-4) 0;
+        gap: var(--ccp-space-4);
+    }
+
+
+    #masthead .hgroup .logo-wrapper,
+    #masthead .hgroup .logo {
+        justify-content: center;
+        width: 100%;
     }
 
 
     #masthead .logo img {
-        width: 360px;
-        max-width: 88vw;
+        width: min(360px, 100%);
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+
+    #masthead #header-sidebar {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin: 0;
+    }
+
+
+    .ccp-header-utility {
+        justify-content: center;
+        width: 100%;
     }
 
 
@@ -2352,8 +2449,7 @@ body.home #primary > #content > article > .entry-main > .entry-header {
     }
 
 
-    #masthead .support-text,
-    #masthead #header-sidebar {
+    #masthead .support-text {
         display: none;
     }
 
